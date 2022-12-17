@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:latest
 
 EXPOSE 749 88/udp
 

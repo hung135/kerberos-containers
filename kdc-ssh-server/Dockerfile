@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:latest
 
 EXPOSE 749 88 22
 
@@ -17,4 +17,7 @@ ENV KADMIN_PASSWORD ${KADMIN_PASSWORD:-adminpassword}
 COPY init-script.sh /tmp/
 COPY sshd_config /etc/ssh/sshd_config
 CMD /tmp/init-script.sh
+
+RUN mkdir -p /run/sshd
+RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ""
 
